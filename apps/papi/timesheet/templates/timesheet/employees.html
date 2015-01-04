@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    Employee List:
+    <h1>Employee List:</h1>
 
     {% if employees %}
         <ul>
@@ -11,7 +11,7 @@
         {% endfor %}
         </ul>
     {% else %}
-        <p class="empty">No employees are available.</p>
+        <p class="empty">No employees available.</p>
     {% endif %}
 
 {% endblock %}

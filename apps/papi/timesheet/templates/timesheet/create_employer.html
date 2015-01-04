@@ -1,0 +1,30 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1>Create Employer:</h1>
+
+    {% if error_message %}<p class="error">{{ error_message }}</p>{% endif %}
+
+    <form action="/timesheet/employers/create_employer/" method="post">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employer Name</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody class="tableData">
+                <tr>
+                    <td>
+                        <input type="text" name="name" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <input type="submit" value="Create" />
+    </form>
+
+{% endblock %}

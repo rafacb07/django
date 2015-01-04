@@ -1,0 +1,17 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1>Employer List:</h1>
+
+    {% if employers %}
+        <ul>
+        {% for employer in employers %}
+            <li><a href="/timesheet/employers/{{ employer.id }}/">{{ employer.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="empty">No employers available.</p>
+    {% endif %}
+
+{% endblock %}

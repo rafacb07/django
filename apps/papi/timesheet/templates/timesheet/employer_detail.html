@@ -1,0 +1,18 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1> Employer Details: </h1>
+
+    {% if employer %}
+    	<ul>
+            Id: {{ employer.id }}
+        </ul>
+        <ul>
+            Name: {{ employer.name }}
+        </ul>
+    {% else %}
+        <p>Employer not available.</p>
+    {% endif %}
+
+{% endblock %}
