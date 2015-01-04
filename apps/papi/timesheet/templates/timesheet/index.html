@@ -1,0 +1,41 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1> Timesheet List: </h1>
+
+    {% if timesheets %}
+        <ul>
+        {% for timesheet in timesheets %}
+            <li><a href="/timesheet/{{ timesheet.id }}/">{{ timesheet.employer_id }} - {{ timesheet.employee_id }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No timesheets available.</p>
+    {% endif %}
+
+    <h1> Employer List: </h1>
+
+    {% if employers %}
+        <ul>
+        {% for employer in employers %}
+            <li><a href="/timesheet/{{ employer.id }}/">{{ employer.name }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employers available.</p>
+    {% endif %}
+
+    <h1> Employee List: </h1>
+
+    {% if employees %}
+        <ul>
+        {% for employee in employees %}
+            <li><a href="/timesheet/employees/{{ employee.id }}/">{{ employee.name }} {{ employee.lastname }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employees available.</p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+
+<html lang="en">
+    <head>
+        {% bootstrap_stylesheet_tag %}
+        {% bootstrap_stylesheet_tag "responsive" %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        {% bootstrap_javascript_tag %}
+        {% block extra_head %}{% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'timesheet/style.css' %}" />
+        <title>Papi Timesheet</title>
+    </head>
+
+    <body>
+        <div id="header">
+            {% block header %}
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li><a href="/timesheet">Home</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employees<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/timesheet/employees">Employee List</a></li>
+                                    <li><a href="/timesheet/employees/create_employee">Create Employee</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+
+        </br></br>
+
+        <div id="content" class="container">
+
+            {% bootstrap_messages %}
+
+            {% block content %}Empty page{% endblock %}
+
+            <p><hr></p>
+
+            <footer class="row">
+                <div class="span6">
+                    <p>This is <a href="https://github.com/dyve/django-bootstrap-toolkit">django-bootstrap-toolkit</a></p>
+                </div>
+                <div class="span6" style="text-align:right">
+                    <p>
+                        &copy; <a href="http://www.google.com">Rafa Crespo</a> 2015
+                        |
+                        <a href="http://www.google.com">license</a>
+                    </p>
+                </div>
+            </footer>
+
+        </div>
+    </body>
+</html>

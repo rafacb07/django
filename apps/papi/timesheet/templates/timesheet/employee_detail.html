@@ -1,0 +1,18 @@
+<h1> Employee Details: </h1>
+
+{% if employee %}
+	<ul>
+        Id: {{ employee.id }}
+    </ul>
+    <ul>
+        Name: {{ employee.name }}
+    </ul>
+    <ul>
+        Last Name: {{ employee.lastname }}
+    </ul>
+    <ul>
+        Company Id: {{ employee.employer_id }}
+    </ul>
+{% else %}
+    <p>Employee not available.</p>
+{% endif %}
