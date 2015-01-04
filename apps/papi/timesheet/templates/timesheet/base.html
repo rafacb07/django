@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 
 {% load staticfiles %}
-{% load bootstrap_toolkit %}
+{% load bootstrap3 %}
 
 <html lang="en">
     <head>
-        {% bootstrap_stylesheet_tag %}
-        {% bootstrap_stylesheet_tag "responsive" %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        {% bootstrap_javascript_tag %}
-        {% block extra_head %}{% endblock %}
-
         <link rel="stylesheet" type="text/css" href="{% static 'timesheet/style.css' %}" />
-        <title>Papi Timesheet</title>
+        <title>{% block title %}Papi Timesheet{% endblock %}</title>
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery=1 %}
     </head>
 
     <body>
@@ -21,23 +18,43 @@
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <ul class="nav">
-                            <li><a href="/timesheet">Home</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employees<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/timesheet/employees">Employee List</a></li>
-                                    <li><a href="/timesheet/employees/create_employee">Create Employee</a></li>
+                        <nav role="navigation" class="navbar navbar-inverse">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="/timesheet" class="navbar-brand">RPM Timesheet</a>
+                            </div>
+                            <!-- Collection of nav links, forms, and other content for toggling -->
+                            <div id="navbarCollapse" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="/timesheet">Home</a></li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Employees<b class="caret"></b></a>
+                                        <ul role="menu" class="dropdown-menu">
+                                            <li><a href="/timesheet/employees">Employee List</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/timesheet/employees/create_employee">Create Employee</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/timesheet/employers">Employer List</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="/timesheet/employers/create_employer">Create Employer</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employers<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/timesheet/employers">Employer List</a></li>
-                                    <li><a href="/timesheet/employers/create_employer">Create Employer</a></li>
+                                <ul class="nav navbar-nav navbar-right" style="padding-right: 1cm">
+                                    <li><a href="#">Settings</a></li>
                                 </ul>
-                            </li>
-                        </ul>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>

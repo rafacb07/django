@@ -6,7 +6,7 @@ from timesheet.models import Employee, Employer, Timesheet
 from timesheet.forms import EmployeeForm
 
 def employees(request):
-    employees = Employee.objects.order_by('-id')
+    employees = Employee.objects.order_by('id')
     context = {'employees': employees}
     return render(request, 'timesheet/employees.html', context)
 

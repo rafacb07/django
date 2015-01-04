@@ -34,7 +34,7 @@ class Employee(models.Model):
     ACTIVE = 0x000001
 
     def isActive(self):
-        return self.flags==ACTIVE
+        return self.flags&ACTIVE==1
 
 class Employer(models.Model):
     name        = models.CharField(max_length=255, unique=True)

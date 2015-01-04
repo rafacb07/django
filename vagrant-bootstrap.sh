@@ -66,5 +66,5 @@ virtualenv venv
 source venv/bin/activate
 pip install django
 pip install MySQL-python
-pip install django-bootstrap-toolkit
+pip install django-bootstrap3
 deactivate
