@@ -12,4 +12,7 @@ urlpatterns = patterns('',
     url(r'^employers/$', views.employers, name='employers_index'),
     url(r'employers/(\d?)/$', views.employer_detail, name='employer_detail'),
     url(r'^employers/create_employer/$', views.create_employer, name='create_employer'),
+    # Timesheet views
+    url(r'^timesheets/$', views.timesheets, name='timesheets_index'),
+    url(r'timesheets/(\d?)/$', views.timesheet_detail, name='timesheet_detail'),
 )

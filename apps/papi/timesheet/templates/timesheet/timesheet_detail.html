@@ -1,0 +1,27 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1> Timesheet Details: </h1>
+
+    {% if timesheet %}
+        <ul>
+            Id: {{ timesheet.id }}
+        </ul>
+        <ul>
+            Employee Id: <a href="/timesheet/employees/{{ timesheet.employee_id }}/">{{ timesheet.employee_id }}</a>
+        </ul>
+        <ul>
+            Company Id: <a href="/timesheet/employers/{{ timesheet.employer_id }}/">{{ timesheet.employer_id }}</a>
+        </ul>
+        <ul>
+            Report Date: {{ timesheet.report_date }}
+        </ul>
+        <ul>
+            Hours Reported: {{ timesheet.hours }}
+        </ul>
+    {% else %}
+        <p>Timesheet not available.</p>
+    {% endif %}
+
+{% endblock %}

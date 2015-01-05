@@ -1,0 +1,17 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1>Timesheet List:</h1>
+
+    {% if timesheets %}
+        <ul>
+        {% for timesheet in timesheets %}
+            <li><a href="/timesheet/timesheets/{{ timesheet.id }}/">{{ timesheet.id }} - {{ timesheet.employee_id }} - {{ timesheet.report_date }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="empty">No timesheets available.</p>
+    {% endif %}
+
+{% endblock %}
