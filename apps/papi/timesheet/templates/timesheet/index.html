@@ -7,7 +7,7 @@
     {% if timesheets %}
         <ul>
         {% for timesheet in timesheets %}
-            <li><a href="/timesheet/{{ timesheet.id }}/">{{ timesheet.employer_id }} - {{ timesheet.employee_id }} - {{ timesheet.id }}</a></li>
+            <li><a href="/timesheet/{{ timesheet.id }}/">{{ timesheet.id }} - {{ timesheet.name }} - {{ timesheet.report_date }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
