@@ -7,7 +7,7 @@
     {% if timesheets %}
         <ul>
         {% for timesheet in timesheets %}
-            <li><a href="/timesheet/{{ timesheet.id }}/">{{ timesheet.id }} - {{ timesheet.name }} - {{ timesheet.report_date }}</a></li>
+            <li><a href="/timesheet/timesheets/{{ timesheet.id }}/">{{ timesheet.id }} - {{ timesheet.name }} - {{ timesheet.report_date }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -19,7 +19,7 @@
     {% if employers %}
         <ul>
         {% for employer in employers %}
-            <li><a href="/timesheet/{{ employer.id }}/">{{ employer.name }}</a></li>
+            <li><a href="/timesheet/employers/{{ employer.id }}/">{{ employer.name }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
