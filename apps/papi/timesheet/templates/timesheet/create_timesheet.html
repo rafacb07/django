@@ -1,0 +1,44 @@
+{% extends "timesheet/base.html" %}
+
+{% block content %}
+
+    <h1>Create Timesheet:</h1>
+
+    {% if error_message %}<p class="error">{{ error_message }}</p>{% endif %}
+
+    <form action="/timesheet/timesheets/create_timesheet/" method="post">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours Worked</th>
+                    <th>Project Name</th>
+                    <th>Comments</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody class="tableData">
+                {% for day in week_days %}
+                    <tr>
+                        <td>
+                            {{ day }}
+                        </td>
+                        <td>
+                            <input type="text" name="name" />
+                        </td>
+                        <td>
+                            <input type="text" name="lastname" />
+                        </td>
+                        <td>
+                            <input type="text" name="email" />
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <input type="submit" value="Create" />
+    </form>
+
+{% endblock %}

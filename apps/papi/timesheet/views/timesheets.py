@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from timesheet.models import Employee, Employer, Timesheet
 from timesheet.forms import EmployerForm
+from timesheet.libraries.calendar import Calendar
+import datetime
 
 def timesheets(request):
     timesheets = Timesheet.objects.order_by('id')
@@ -15,7 +17,7 @@ def timesheet_detail(request, timesheet_id):
     context = {'timesheet': timesheet}
     return render(request, 'timesheet/timesheet_detail.html', context)
 
-def create_employer(request):
+def create_timesheet(request):
     # Check if this is a post request or not
     if request.method == 'POST':
         # If post, create the form to create a new employer
@@ -28,7 +30,10 @@ def create_employer(request):
             # Redirect to employer list page
             return redirect(employers)
         else:
-            return render(request, 'timesheet/create_employer.html')
+            return render(request, 'timesheet/create_timesheet.html')
     else:
+        calendar  = Calendar(datetime.datetime.now())
+        week_days = calendar.get_week_days()
+        context   = {'week_days': week_days}
         # If not a post request, show the form to create a new employer
-        return render(request, 'timesheet/create_employer.html')
+        return render(request, 'timesheet/create_timesheet.html', context)

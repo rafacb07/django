@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     # Timesheet views
     url(r'^timesheets/$', views.timesheets, name='timesheets_index'),
     url(r'timesheets/(\d?)/$', views.timesheet_detail, name='timesheet_detail'),
+    url(r'^timesheets/create_timesheet/$', views.create_timesheet, name='create_timesheet'),
 )
